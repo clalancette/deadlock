@@ -125,17 +125,12 @@ public:
 
       // Return quickly to avoid blocking the executor, so spin up a new thread
       debug_msg("Executing goal asynchronously.");
-      //execution_future_ = std::async(std::launch::async, [this]() {work();});
-      std::thread t([this]() {work(); });
-      t.detach();
+      execution_future_ = std::async(std::launch::async, [this]() {work();});
     }
   }
 
   void work()
   {
-    std::promise<void> promise;
-    execution_future_ = promise.get_future();
-    promise.set_value_at_thread_exit();
     while (rclcpp::ok() && !stop_execution_ && is_active(current_handle_)) {
       debug_msg("Executing the goal...");
       try {
