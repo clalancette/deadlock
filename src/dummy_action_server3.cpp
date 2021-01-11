@@ -63,14 +63,6 @@ public:
   {
   }
 
-  void on_configure()
-  {
-    action_server_ = std::make_unique<nav2_util::SimpleActionServer<nav2_msgs::action::ComputePathToPose>>(
-      rclcpp_node_,
-      "compute_path_to_pose",
-      std::bind(&PlannerServer::computePlan, this));
-  }
-
   void computePlan()
   {
     RCLCPP_INFO(get_logger(), "computePlan start\n");
@@ -123,7 +115,6 @@ int main(int argc, char ** argv)
 {
   rclcpp::init(argc, argv);
   auto node = std::make_shared<PlannerServer>();
-  //node->on_configure();
 
   rclcpp::spin(node->get_node_base_interface());
 
