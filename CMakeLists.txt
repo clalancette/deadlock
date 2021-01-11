@@ -29,7 +29,7 @@ add_executable(dummy_action_server3 src/dummy_action_server3.cpp)
 ament_target_dependencies(dummy_action_server3 rclcpp rclcpp_action nav2_msgs test_msgs)
 
 install(TARGETS
-  deadlock dummy_action_server dummy_action_server2 dummy_action_server3
+  deadlock dummy_action_server3
   ARCHIVE DESTINATION lib
   LIBRARY DESTINATION lib
   RUNTIME DESTINATION bin)
