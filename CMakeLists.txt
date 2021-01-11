@@ -25,12 +25,6 @@ find_package(test_msgs REQUIRED)
 add_executable(deadlock src/deadlock.cpp)
 ament_target_dependencies(deadlock rclcpp rclcpp_action nav2_msgs)
 
-add_executable(dummy_action_server src/dummy_action_server.cpp)
-ament_target_dependencies(dummy_action_server rclcpp rclcpp_action nav2_msgs)
-
-add_executable(dummy_action_server2 src/dummy_action_server2.cpp)
-ament_target_dependencies(dummy_action_server2 rclcpp rclcpp_action nav2_msgs test_msgs)
-
 add_executable(dummy_action_server3 src/dummy_action_server3.cpp)
 ament_target_dependencies(dummy_action_server3 rclcpp rclcpp_action nav2_msgs test_msgs)
 
